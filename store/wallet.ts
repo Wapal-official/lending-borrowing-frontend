@@ -28,8 +28,6 @@ export const actions = {
 
     commit("setWallet", wallet.account);
 
-    console.log(wallet);
-
     localStorage.setItem(
       "wallet",
       JSON.stringify({ ...wallet.account, name: payload })
@@ -45,13 +43,9 @@ export const actions = {
       arguments: ["Liberating Creators V2", 100, 1],
     };
 
-    const transaction = await wallet.signAndSubmitTransaction(payload);
+    const res = await executeTransaction(payload);
 
-    const result = await client.waitForTransactionWithResult(transaction.hash);
-
-    if (result) {
-      return result;
-    }
+    return res;
   },
   async createPool() {
     const payload = {
@@ -66,13 +60,9 @@ export const actions = {
       ],
     };
 
-    const transaction = await wallet.signAndSubmitTransaction(payload);
+    const res = await executeTransaction(payload);
 
-    const result = await client.waitForTransactionWithResult(transaction.hash);
-
-    if (result) {
-      return result;
-    }
+    return res;
   },
   async borrowerSelect() {
     const payload = {
@@ -87,13 +77,9 @@ export const actions = {
       ],
     };
 
-    const transaction = await wallet.signAndSubmitTransaction(payload);
+    const res = await executeTransaction(payload);
 
-    const result = await client.waitForTransactionWithResult(transaction.hash);
-
-    if (result) {
-      return result;
-    }
+    return res;
   },
   async updatePool() {
     const payload = {
@@ -103,13 +89,45 @@ export const actions = {
       arguments: ["Liberating Creators V2", 86400, 1, true],
     };
 
-    const transaction = await wallet.signAndSubmitTransaction(payload);
+    const res = await executeTransaction(payload);
 
-    const result = await client.waitForTransactionWithResult(transaction.hash);
+    return res;
+  },
+  async payLoan() {
+    const payload = {
+      type: "entry_function_payload",
+      function: pid + "::borrowlend::borrower_pay_loan",
+      type_arguments: [],
+      arguments: ["Liberating Creators V2", "Liberating Creators V2 #1665"],
+    };
 
-    if (result) {
-      return result;
-    }
+    const res = await executeTransaction(payload);
+
+    return res;
+  },
+  async cancelLenderOffer() {
+    const payload = {
+      type: "entry_function_payload",
+      function: pid + "::borrowlend::lender_offer_cancel",
+      type_arguments: [],
+      arguments: ["Liberating Creators V2"],
+    };
+
+    const res = await executeTransaction(payload);
+
+    return res;
+  },
+  async lenderClaimNft() {
+    const payload = {
+      type: "entry_function_payload",
+      function: pid + "::borrowlend::lender_claim_nft",
+      type_arguments: [],
+      arguments: ["Liberating Creators V2", "Liberating Creators V2 #1665"],
+    };
+
+    const res = await executeTransaction(payload);
+
+    return res;
   },
 };
 
@@ -117,4 +135,16 @@ export const getters = {
   getWalletsDetail() {
     return wallets;
   },
+};
+
+const executeTransaction = async (payload: any) => {
+  const transaction = await wallet.signAndSubmitTransaction(payload);
+
+  const result = await client.waitForTransactionWithResult(transaction.hash);
+
+  if (result) {
+    return result;
+  }
+
+  throw new Error("Execution Failed");
 };
