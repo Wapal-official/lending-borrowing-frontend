@@ -2,8 +2,18 @@
   <div
     class="tw-w-full tw-flex tw-flex-row tw-items-center tw-justify-between tw-px-8 tw-py-6 tw-border tw-border-b-black md:tw-px-[3.75rem]"
   >
-    <div>Logo</div>
+    <a href="/"><img :src="logo" alt="logo" width="120px" height="35px" /></a>
     <connect-wallet />
   </div>
 </template>
-<script lang="ts"></script>
+<script>
+import logo from "@/assets/img/logo.svg";
+
+export default {
+  data() {
+    return {
+      logo,
+    };
+  },
+};
+</script>
