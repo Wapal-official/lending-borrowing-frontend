@@ -1,6 +1,6 @@
 <template>
   <button
-    class="tw-text-white tw-bg-black tw-border-transparent tw-rounded tw-px-6 tw-py-2 tw-text-sm tw-font-medium"
+    class="tw-text-white tw-bg-primary tw-border-transparent tw-rounded tw-px-6 tw-py-2 tw-text-sm tw-font-normal tw-tracking-[0.0625rem]"
     @click="$emit('click')"
   >
     {{ text }}
