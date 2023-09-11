@@ -43,5 +43,58 @@ export default {
         },
       },
     },
+    // babel: {
+    //   plugins: ["@babel/plugin-proposal-optional-chaining"],
+    // },
+    // extend(config) {
+    //   config.module.rules.push({
+    //     test: /\.mjs$/,
+    //     include: /node_modules/,
+    //     type: "javascript/auto",
+    //     loader: "babel-loader",
+    //     options: {
+    //       presets: ["@babel/preset-env"],
+    //       plugins: ["@babel/plugin-proposal-optional-chaining"],
+    //     },
+    //   });
+    // },
+    transpile: [
+      "@identity-connect/dapp-sdk/dist/index.js",
+      "@identity-connect/api/dist/index.js",
+      "@aptos-labs/wallet-adapter-core/dist/index.mjs",
+      "aptos/dist/index.mjs",
+    ],
+  },
+  vuetify: {
+    customVariables: [
+      "~/assets/variables.scss",
+      "~/assets/styles/typography.scss",
+      "~/assets/styles/general.scss",
+    ],
+    theme: {
+      dark: true,
+      themes: {
+        dark: {
+          body: "#101113",
+          primary: "#9D80FF",
+          secondary: "#909296",
+          background: "#25262B",
+          white: "#FFFFFF",
+          black: "#000000",
+          grey: "#616161",
+          red: "#FF5449",
+          pink: "#FF5449",
+          icon: "#5D5F65",
+          info: "#2196F3",
+          warning: "#FFC107",
+          error: "#FF5252",
+          success: "#4CAF50",
+          textBack: "#EEEEEE",
+          badge: "#E9083F",
+          live: "#8CD867",
+          lightGrey: "#383A3F",
+        },
+      },
+    },
   },
 };
