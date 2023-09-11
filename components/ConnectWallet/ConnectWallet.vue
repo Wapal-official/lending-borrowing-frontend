@@ -5,7 +5,7 @@
       v-if="!wallet.address"
       @click="connectWalletDialog = true"
     />
-    <button-primary :text="getWalletAddress" v-else />
+    <button-primary :text="getWalletAddress" :secondary="true" v-else />
     <connect-wallet-modal
       :connectDialog="connectWalletDialog"
       @close="connectWalletDialog = false"
@@ -20,7 +20,14 @@ export default {
     },
     getWalletAddress() {
       if (this.wallet) {
-        return this.wallet.address;
+        return (
+          this.wallet.address.substring(0, 9) +
+          "..." +
+          this.wallet.address.substring(
+            this.wallet.address.length - 2,
+            this.wallet.address.length
+          )
+        );
       }
     },
   },
