@@ -37,7 +37,7 @@
                 <button-primary
                   :text="header.value"
                   @click="buttonClick(item)"
-                  :white="true"
+                  :secondary="true"
                 />
               </div>
               <div v-else class="tw-text-lg">{{ item[header.value] }}</div>

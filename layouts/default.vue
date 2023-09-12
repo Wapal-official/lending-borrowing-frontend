@@ -46,11 +46,25 @@ export default {
   data() {
     return {
       tab: 0,
-      tabs: ["Leasing", "Offer", "Borrow", "Loan"],
+      tabs: ["Lend", "Lease", "Offer", "Borrow", "Loan"],
       background,
     };
   },
   async mounted() {
+    if (this.$route.path === "/") {
+      this.tab = 0;
+    } else if (this.$route.path === "/lease") {
+      this.tab = 1;
+    } else if (this.$route.path === "/offer") {
+      this.tab = 2;
+    } else if (this.$route.path === "/borrow") {
+      this.tab = 3;
+    } else if (this.$route.path === "/loan") {
+      this.tab = 4;
+    } else {
+      this.tab = 0;
+    }
+
     if (process.client) {
       if (localStorage.getItem("wallet")) {
         const wallet = JSON.parse(localStorage.getItem("wallet"));
@@ -68,13 +82,13 @@ export default {
           this.$router.push("/");
           break;
         case 1:
-          // this.$router.push("/past-auction");
           break;
         case 2:
-          this.$router.push("/borrow");
           break;
         case 3:
-          // this.$router.push("/past-auction");
+          this.$router.push("/borrow");
+          break;
+        case 4:
           break;
         default:
           this.$router.push("/");

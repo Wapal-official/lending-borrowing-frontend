@@ -20,7 +20,7 @@ module.exports = {
         "dark-7": "#1A1B1E",
         "dark-8": "#141517",
         "dark-9": "#101113",
-        primary: "#9D80FF",
+        primary: "#8759FF",
       },
     },
   },
