@@ -8,7 +8,7 @@
     >
       <template #prepend-icon>
         <i
-          class="bx bxs-user !tw-text-primary-1 tw-text-xl tw-pr-[0.62em] tw-text-primary"
+          class="bx bxs-user !tw-text-primary-1 tw-text-xl tw-pr-[0.62rem] tw-text-primary"
         ></i>
       </template>
     </button-primary>

@@ -239,6 +239,7 @@ export default {
 
       if (!this.search) {
         this.clearSearch();
+        return;
       }
 
       if (this.search.length < 3) {

@@ -14,7 +14,8 @@
 }
 
 @layer base {
-  body {
+  body,
+  .v-application {
     font-family: Inter, sans-serif !important;
   }
 }

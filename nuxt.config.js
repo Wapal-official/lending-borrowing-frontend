@@ -68,11 +68,6 @@ export default {
     ],
   },
   vuetify: {
-    customVariables: [
-      "~/assets/variables.scss",
-      "~/assets/styles/typography.scss",
-      "~/assets/styles/general.scss",
-    ],
     theme: {
       dark: true,
       themes: {
@@ -95,6 +90,12 @@ export default {
           badge: "#E9083F",
           live: "#8CD867",
           lightGrey: "#383A3F",
+        },
+      },
+      treeShake: true,
+      defaultAssets: {
+        font: {
+          family: "Inter",
         },
       },
     },

@@ -17,11 +17,7 @@
       </v-card-title>
       <v-card-text>
         <div class="d-flex align-center mb-3 justify-center">
-          <img
-            class="wallet-img mr-3"
-            :src="currentWallet.icon"
-            :alt="walletStore.wallet"
-          />
+          <img class="wallet-img mr-3" :src="currentWallet.icon" alt="wallet" />
           <div class="font-bold">Wallet Currently Connected</div>
         </div>
         <div class="d-flex justify-center">
@@ -54,14 +50,17 @@ export default {
   },
   computed: {
     currentWallet() {
-      const wallets = this.$store.getters["wallet/getWalletsDetail"];
-      const wallet = wallets.find(
-        (wallet) => wallet.name === this.walletStore.wallet
-      );
-      if (!wallet) {
-        return wallets[0];
+      if (this.walletStore) {
+        const wallets = this.$store.getters["wallet/getWalletsDetail"];
+        const wallet = wallets.find(
+          (wallet) => wallet.name === this.walletStore.wallet
+        );
+        if (!wallet) {
+          return wallets[0];
+        }
+        return wallet;
       }
-      return wallet;
+      return { icon: "" };
     },
     walletStore() {
       return this.$store.state.wallet.wallet;
