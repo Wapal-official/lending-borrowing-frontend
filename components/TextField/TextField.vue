@@ -35,7 +35,7 @@
         :class="{
           'tw-cursor-not-allowed': disabled,
           '!tw-pl-6': $slots['prepend-icon'],
-          primary: primary,
+          'primary-input': primary,
           'secondary-input': secondary,
           'px-8': !small,
         }"
@@ -115,7 +115,7 @@ export default {
 };
 </script>
 <style>
-.primary {
+.primary-input {
   border-radius: 7px !important;
   @apply tw-bg-dark-6 tw-border-dark-4 tw-border-solid tw-border;
 }
@@ -147,7 +147,7 @@ export default {
   @apply !tw-text-sm placeholder:!tw-text-sm placeholder:!tw-font-normal;
 }
 
-.primary {
+.primary-input {
   @apply !tw-text-dark-2;
 }
 

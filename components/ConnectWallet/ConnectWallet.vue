@@ -4,7 +4,7 @@
       :text="getWalletAddress"
       :secondary="true"
       @click="disconnectWalletDialog = true"
-      v-if="wallet.address"
+      v-if="wallet && wallet.address"
     >
       <template #prepend-icon>
         <i
