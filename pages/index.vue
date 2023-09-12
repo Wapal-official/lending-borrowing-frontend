@@ -1,8 +1,4 @@
-<template>
-  <div class="tw-w-full tw-bg-dark-9 tw-h-screen">
-    <div class="tw-container tw-mx-auto"></div>
-  </div>
-</template>
+<template></template>
 
 <script>
 import { addLendingOffers, getLendingOffers } from "@/services/lending";
