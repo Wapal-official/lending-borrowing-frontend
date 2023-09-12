@@ -24,7 +24,9 @@ export const mutations = {
 
 export const actions = {
   async connectWallet({ commit }: { commit: any }, payload: WalletName) {
-    await wallet.connect(payload);
+    if (!wallet.isConnected()) {
+      await wallet.connect(payload);
+    }
 
     commit("setWallet", wallet.account);
 

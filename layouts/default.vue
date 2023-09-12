@@ -13,7 +13,9 @@
         <div
           class="tw-container tw-mx-auto tw-flex tw-flex-col tw-items-start tw-justify-start tw-py-12 tw-gap-12 tw-px-[3.75rem]"
         >
-          <div class="tw-flex tw-flex-row tw-items-center tw-justify-between">
+          <div
+            class="tw-w-full tw-flex tw-flex-row tw-items-center tw-justify-between"
+          >
             <v-tabs
               v-model="tab"
               class="!tw-bg-transparent tw-rounded-lg tw-p-2 md:!tw-w-fit"
@@ -25,12 +27,24 @@
                 v-for="(tab, index) in tabs"
                 :key="tab"
                 :ripple="false"
-                class="!tw-text-white tw-rounded-md tw-py-2 tw-px-4 !tw-capitalize !tw-text-xl !tw-font-normal tw-transition-all tw-duration-200 tw-ease-linear tw-border-solid tw-border tw-border-transparent"
-                :class="{ 'tw-ml-3': index !== 0 }"
+                class="!tw-text-white tw-rounded-full tw-max-h-[40px] tw-min-h-[40px] tw-py-[0.62rem] tw-px-4 !tw-capitalize !tw-text-xl !tw-font-normal tw-transition-all tw-duration-200 tw-ease-linear tw-border-solid tw-border tw-border-dark-6"
+                :class="{
+                  'tw-ml-3': index !== 0,
+                  '!tw-border-none !tw-px-0 !tw-py-0 !tw-w-fit': tab === '/',
+                }"
               >
                 {{ tab }}
               </v-tab>
             </v-tabs>
+            <div class="tw-w-full tw-flex md:tw-flex-row md:tw-justify-end">
+              <button-primary text="Notify Me!" :secondary="true">
+                <template #prepend-icon>
+                  <i
+                    class="bx bxs-bell !tw-text-xl tw-text-primary tw-pr-[0.62rem]"
+                  ></i>
+                </template>
+              </button-primary>
+            </div>
           </div>
           <div class="tw-w-full" ref="tab">
             <Nuxt />
@@ -47,7 +61,7 @@ export default {
   data() {
     return {
       tab: 0,
-      tabs: ["Lend", "Lease", "Offer", "Borrow", "Loan"],
+      tabs: ["Lend", "Lease", "Offer", "/", "Borrow", "Loan"],
       background,
     };
   },
@@ -87,9 +101,11 @@ export default {
         case 2:
           break;
         case 3:
-          this.$router.push("/borrow");
           break;
         case 4:
+          this.$router.push("/borrow");
+          break;
+        case 5:
           break;
         default:
           this.$router.push("/");
@@ -113,7 +129,7 @@ export default {
 </script>
 <style scoped>
 .v-tab--active {
-  @apply !tw-border-white !tw-font-medium;
+  @apply !tw-border-white !tw-font-medium !tw-text-black !tw-bg-white;
 }
 
 .v-tab--active:hover {
