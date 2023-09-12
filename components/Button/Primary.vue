@@ -7,7 +7,10 @@
       '!tw-border-white tw-bg-transparent': white,
     }"
   >
-    {{ text }}
+    <div class="tw-flex tw-flex-row tw-items-center tw-justify-start">
+      <slot name="prepend-icon"> </slot>
+      <span>{{ text }}</span>
+    </div>
   </button>
 </template>
 <script lang="ts">

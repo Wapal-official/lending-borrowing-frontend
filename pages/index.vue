@@ -177,7 +177,7 @@ export default {
           class: "default-data-table-header",
         },
         {
-          value: "leashing",
+          value: "leasing",
           button: true,
           text: "",
           width: "100px",

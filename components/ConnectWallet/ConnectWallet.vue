@@ -1,14 +1,20 @@
 <template>
   <div>
     <button-primary
-      text="Connect Wallet"
-      v-if="!wallet.address"
-      @click="connectWalletDialog = true"
-    />
-    <button-primary
       :text="getWalletAddress"
       :secondary="true"
       @click="disconnectWalletDialog = true"
+      v-if="wallet.address"
+    >
+      <template #prepend-icon>
+        <i
+          class="bx bxs-user !tw-text-primary-1 tw-text-xl tw-pr-[0.62em] tw-text-primary"
+        ></i>
+      </template>
+    </button-primary>
+    <button-primary
+      text="Connect Wallet"
+      @click="connectWalletDialog = true"
       v-else
     />
     <connect-wallet-modal
