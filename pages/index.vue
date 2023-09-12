@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { addLendingOffers, getLendingOffers } from "@/services/lending";
 export default {
   data() {
     return {
@@ -69,6 +70,12 @@ export default {
 
       console.log(res);
     },
+    async createDocument() {
+      // await addLendingOffers();
+    },
+  },
+  mounted() {
+    getLendingOffers();
   },
 };
 </script>
