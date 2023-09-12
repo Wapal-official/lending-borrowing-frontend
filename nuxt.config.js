@@ -44,27 +44,25 @@ export default {
         },
       },
     },
-    // babel: {
-    //   plugins: ["@babel/plugin-proposal-optional-chaining"],
-    // },
-    // extend(config) {
-    //   config.module.rules.push({
-    //     test: /\.mjs$/,
-    //     include: /node_modules/,
-    //     type: "javascript/auto",
-    //     loader: "babel-loader",
-    //     options: {
-    //       presets: ["@babel/preset-env"],
-    //       plugins: ["@babel/plugin-proposal-optional-chaining"],
-    //     },
-    //   });
-    // },
+    babel: {
+      plugins: ["@babel/plugin-proposal-optional-chaining"],
+    },
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: "javascript/auto",
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env"],
+          plugins: ["@babel/plugin-proposal-optional-chaining"],
+        },
+      });
+    },
     transpile: [
       "@aptos-labs/wallet-adapter-core/dist/index.mjs",
       "aptos/dist/index.mjs",
       "axios",
-      "@pontem/wallet-adapter-plugin/dist/index.mjs",
-      "@martianwallet/aptos-wallet-adapter/dist/index.mjs",
     ],
   },
   vuetify: {
