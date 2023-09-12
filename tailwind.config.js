@@ -21,6 +21,7 @@ module.exports = {
         "dark-8": "#141517",
         "dark-9": "#101113",
         primary: "#8759FF",
+        secondary: "#909296",
       },
     },
   },

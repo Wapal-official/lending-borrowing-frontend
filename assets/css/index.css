@@ -13,6 +13,10 @@
   vertical-align: baseline;
 }
 
+.cc {
+  font-family: Inter, sans-serif !important;
+}
+
 @layer base {
   body,
   .v-application {
