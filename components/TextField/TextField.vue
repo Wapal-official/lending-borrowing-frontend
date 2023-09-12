@@ -31,10 +31,13 @@
         :counter="counter"
         :type="type"
         :disabled="disabled"
-        class="wapal-input tw-w-full px-8"
+        class="wapal-input tw-w-full"
         :class="{
           'tw-cursor-not-allowed': disabled,
           '!tw-pl-6': $slots['prepend-icon'],
+          'primary-input': primary,
+          'secondary-input': secondary,
+          'px-8': !small,
         }"
         @keyup.enter="$emit('enterClicked')"
       >
@@ -87,6 +90,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    primary: {
+      type: Boolean,
+      default: true,
+    },
+    secondary: {
+      type: Boolean,
+    },
+    small: {
+      default: false,
+      type: Boolean,
+    },
   },
   computed: {
     internalValue: {
@@ -101,9 +115,14 @@ export default {
 };
 </script>
 <style>
-.wapal-input {
+.primary-input {
   border-radius: 7px !important;
   @apply tw-bg-dark-6 tw-border-dark-4 tw-border-solid tw-border;
+}
+
+.secondary-input {
+  border-radius: 7px !important;
+  @apply tw-border-2 tw-bg-dark-9 tw-border-primary tw-border-solid;
 }
 
 .wapal-input.v-text-field--outlined > .v-input__control > .v-input__slot {
@@ -125,6 +144,14 @@ export default {
 
 .wapal-input input,
 .wapal-input textarea {
-  @apply !tw-text-sm !tw-text-dark-2 placeholder:!tw-text-sm placeholder:!tw-font-normal;
+  @apply !tw-text-sm placeholder:!tw-text-sm placeholder:!tw-font-normal;
+}
+
+.primary-input {
+  @apply !tw-text-dark-2;
+}
+
+.secondary-input {
+  @apply !tw-text-white;
 }
 </style>

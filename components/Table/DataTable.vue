@@ -33,6 +33,25 @@
                   class="tw-w-[64px] tw-h-[64px] tw-object-cover tw-rounded"
                 />{{ item[header.value] }}
               </div>
+              <div
+                v-else-if="
+                  header.value === 'best_offer' ||
+                  header.value === 'available_pool'
+                "
+                class="tw-text-lg"
+              >
+                {{ item[header.value] }}APT
+              </div>
+              <div v-else-if="header.value === 'apy'" class="tw-text-lg">
+                {{ item[header.value] }}%
+              </div>
+              <div v-else-if="header.button">
+                <button-primary
+                  :text="header.value"
+                  @click="buttonClick(item)"
+                  :secondary="true"
+                />
+              </div>
               <div v-else class="tw-text-lg">{{ item[header.value] }}</div>
             </td>
           </tr>
@@ -46,6 +65,11 @@ export default {
   props: { headers: { type: Array }, items: { type: Array } },
   data() {
     return {};
+  },
+  methods: {
+    buttonClick(item) {
+      this.$emit("buttonClicked", item);
+    },
   },
 };
 </script>

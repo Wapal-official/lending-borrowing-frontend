@@ -1,3 +1,4 @@
+const NETWORK = process.env.NETWORK;
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -18,7 +19,7 @@ export default {
   css: [`@/assets/css/index.css`, "boxicons/css/boxicons.min.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["@/plugins/toast.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -59,18 +60,14 @@ export default {
     //   });
     // },
     transpile: [
-      "@identity-connect/dapp-sdk/dist/index.js",
-      "@identity-connect/api/dist/index.js",
       "@aptos-labs/wallet-adapter-core/dist/index.mjs",
       "aptos/dist/index.mjs",
+      "axios",
+      "@pontem/wallet-adapter-plugin/dist/index.mjs",
+      "@martianwallet/aptos-wallet-adapter/dist/index.mjs",
     ],
   },
   vuetify: {
-    customVariables: [
-      "~/assets/variables.scss",
-      "~/assets/styles/typography.scss",
-      "~/assets/styles/general.scss",
-    ],
     theme: {
       dark: true,
       themes: {
@@ -95,6 +92,15 @@ export default {
           lightGrey: "#383A3F",
         },
       },
+      treeShake: true,
+      defaultAssets: {
+        font: {
+          family: "Inter",
+        },
+      },
     },
+  },
+  env: {
+    NETWORK: NETWORK,
   },
 };

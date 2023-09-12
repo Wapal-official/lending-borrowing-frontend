@@ -1,18 +1,43 @@
 import { db } from "@/services/db";
 import { addDoc, collection, getDocs, query } from "firebase/firestore";
 
-export const addLendingOffers = async () => {
+const collectionName =
+  process.env.NETWORK === "testnet"
+    ? "testnet_lending_offer"
+    : "mainnet_lending_offer";
+
+export const addLendingOffers = async ({
+  wallet_address,
+  number_of_offers,
+  total_amount,
+  collection_name,
+  offer_per_nft,
+  pool_id,
+}: {
+  wallet_address: string;
+  number_of_offers: number;
+  total_amount: number;
+  collection_name: string;
+  offer_per_nft: number;
+  pool_id: string;
+}) => {
   try {
-    const doc = await addDoc(collection(db, "lending_offer"), {
-      collection_name: "test2",
-      number_of_offers: 1,
-      offer_per_nft: 1,
-      wallet_address: "0x12",
+    const doc = await addDoc(collection(db, collectionName), {
+      collection_name: collection_name,
+      number_of_offers: number_of_offers,
+      offer_per_nft: offer_per_nft,
+      wallet_address: wallet_address,
+      total_amount: total_amount,
+      pool_id: pool_id,
     });
 
-    console.log(doc);
+    if (doc.id) {
+      return true;
+    }
+    return false;
   } catch (error) {
     console.log(error);
+    return false;
   }
 };
 
