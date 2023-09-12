@@ -183,15 +183,7 @@ export default {
           width: "100px",
         },
       ],
-      data: [
-        {
-          name: "test",
-          "best-offer": 16,
-          "available-pool": 8,
-          apy: 16,
-          duration: "10d",
-        },
-      ],
+      data: [],
       lendDialog: false,
       amount: null,
       interest: 0,
@@ -232,6 +224,7 @@ export default {
             total_amount: this.finalAPT,
             collection_name: this.selectedCollection.collection_name,
             offer_per_nft: this.amount,
+            pool_id: this.selectedCollection.id,
           });
         }
 

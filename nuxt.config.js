@@ -64,6 +64,7 @@ export default {
       "@identity-connect/api/dist/index.js",
       "@aptos-labs/wallet-adapter-core/dist/index.mjs",
       "aptos/dist/index.mjs",
+      "axios",
     ],
   },
   vuetify: {

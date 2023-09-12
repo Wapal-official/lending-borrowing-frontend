@@ -65,13 +65,13 @@ export default {
     tabChanged() {
       switch (this.tab) {
         case 0:
-          //this.$router.push("/live-auction");
+          this.$router.push("/");
           break;
         case 1:
           // this.$router.push("/past-auction");
           break;
         case 2:
-          // this.$router.push("/past-auction");
+          this.$router.push("/borrow");
           break;
         case 3:
           // this.$router.push("/past-auction");

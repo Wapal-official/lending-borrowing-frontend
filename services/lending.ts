@@ -12,12 +12,14 @@ export const addLendingOffers = async ({
   total_amount,
   collection_name,
   offer_per_nft,
+  pool_id,
 }: {
   wallet_address: string;
   number_of_offers: number;
   total_amount: number;
   collection_name: string;
   offer_per_nft: number;
+  pool_id: string;
 }) => {
   try {
     const doc = await addDoc(collection(db, collectionName), {
@@ -26,6 +28,7 @@ export const addLendingOffers = async ({
       offer_per_nft: offer_per_nft,
       wallet_address: wallet_address,
       total_amount: total_amount,
+      pool_id: pool_id,
     });
 
     if (doc.id) {

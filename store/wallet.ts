@@ -71,16 +71,29 @@ export const actions = {
 
     return res;
   },
-  async borrowerSelect() {
+  async borrowerSelect(
+    {},
+    {
+      collection_name,
+      token_name,
+      property_version,
+      lender_address,
+    }: {
+      collection_name: string;
+      token_name: string;
+      property_version: number;
+      lender_address: string;
+    }
+  ) {
     const payload = {
       function: pid + "::borrowlend::borrow_select",
       type: "entry_function_payload",
       type_arguments: [],
       arguments: [
-        "Liberating Creators V2",
-        "Liberating Creators V2 #1665",
-        0,
-        "0x07ecaef2199760a2e28fb7eea9a451c8939c5f90b4d00103dd3b11cd88941cb2",
+        collection_name,
+        token_name,
+        property_version,
+        lender_address,
       ],
     };
 
