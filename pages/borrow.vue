@@ -38,7 +38,7 @@
           class="tw-flex tw-flex-row tw-items-center tw-justify-start tw-gap-2"
         >
           <img
-            class="tw-rounded-full"
+            class="tw-rounded-full tw-w-[76px] tw-h-[76px] tw-object-cover"
             :src="selectedCollection?.image"
             width="76px"
             height="76px"
@@ -88,7 +88,11 @@
                 : false,
             }"
           >
-            <img class="tw-rounded-t-lg" :src="item.image" alt="image" />
+            <img
+              class="tw-rounded-t-lg tw-w-full tw-h-full tw-object-cover"
+              :src="item.image"
+              alt="image"
+            />
             <div
               class="tw-p-4 tw-border-b tw-border-l tw-border-r tw-border-dark-6 tw-border-solid tw-text-xs"
             >

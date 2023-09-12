@@ -66,10 +66,10 @@ export const actions = {
       type: "entry_function_payload",
       type_arguments: [],
       arguments: [
-        "0x3c853266e4b19847247e93504a58e203f4c7254b87584597dcd4ec3664605622",
-        "Liberating Creators V2",
-        86400,
-        1,
+        "0x5bc359322e350a79b37b9f557428e1f8e199b862546092179bd5e33bda8bd1c9",
+        "los mint part II",
+        10000,
+        2,
       ],
     };
 

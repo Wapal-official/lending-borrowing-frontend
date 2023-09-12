@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div class="tw-min-h-screen tw-w-full">
+    <div class="tw-w-full">
       <navbar />
       <div class="tw-w-screen tw-h-screen">
         <img
@@ -9,7 +9,7 @@
           alt="background"
         />
       </div>
-      <div class="tw-w-full tw-bg-dark-9 tw-h-screen">
+      <div class="tw-w-full tw-bg-dark-9">
         <div
           class="tw-container tw-mx-auto tw-flex tw-flex-col tw-items-start tw-justify-start tw-py-12 tw-gap-12 tw-px-[3.75rem]"
         >
