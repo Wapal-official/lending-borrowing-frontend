@@ -35,12 +35,19 @@ export const actions = {
 
     return wallet.account;
   },
-  async lenderOffer() {
+  async lenderOffer(
+    {},
+    {
+      collection_name,
+      amount,
+      numberOfOffers,
+    }: { collection_name: string; amount: number; numberOfOffers: number }
+  ) {
     const payload = {
       function: pid + "::borrowlend::lender_offer",
       type: "entry_function_payload",
       type_arguments: [],
-      arguments: ["Liberating Creators V2", 100, 1],
+      arguments: [collection_name, formatPriceToAPT(amount), numberOfOffers],
     };
 
     const res = await executeTransaction(payload);
@@ -147,4 +154,8 @@ const executeTransaction = async (payload: any) => {
   }
 
   throw new Error("Execution Failed");
+};
+
+const formatPriceToAPT = (price: number) => {
+  return Math.floor(price * Math.pow(10, 8));
 };

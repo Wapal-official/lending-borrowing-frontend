@@ -1,3 +1,4 @@
+const NETWORK = process.env.NETWORK;
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -96,5 +97,8 @@ export default {
         },
       },
     },
+  },
+  env: {
+    NETWORK: NETWORK,
   },
 };

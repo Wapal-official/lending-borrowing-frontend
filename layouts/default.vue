@@ -32,7 +32,7 @@
               </v-tab>
             </v-tabs>
           </div>
-          <div ref="tab">
+          <div class="tw-w-full" ref="tab">
             <Nuxt />
           </div>
         </div>
