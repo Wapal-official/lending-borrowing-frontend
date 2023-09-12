@@ -47,29 +47,35 @@ export const getTokensOfUser = async ({
 
   const res = await axios.post(GRAPHQL_URL, query);
 
-  const data = res.data.data.current_token_ownerships_v2;
+  if (res.data.data) {
+    const data = res.data.data.current_token_ownerships_v2;
 
-  const promiseRes = await Promise.all(
-    data.map(async (token: any) => {
-      let metadata_uri = token.current_token_data.token_uri;
+    const promiseRes = await Promise.all(
+      data.map(async (token: any) => {
+        let metadata_uri = token.current_token_data.token_uri;
 
-      if (metadata_uri) {
-        if (metadata_uri.slice(0, 7) == "ipfs://") {
-          metadata_uri = `https://ipfs.wapal.io/ipfs/${metadata_uri.slice(7)}`;
+        if (metadata_uri) {
+          if (metadata_uri.slice(0, 7) == "ipfs://") {
+            metadata_uri = `https://ipfs.wapal.io/ipfs/${metadata_uri.slice(
+              7
+            )}`;
+          }
         }
-      }
 
-      const metadata = await axios.post(metadata_uri);
+        const metadata = await axios.post(metadata_uri);
 
-      let image = metadata.data.image;
+        let image = metadata.data.image;
 
-      if (image.slice(0, 7) === "ipfs://") {
-        image = `https://ipfs.wapal.io/ipfs/${image.slice(7)}`;
-      }
+        if (image.slice(0, 7) === "ipfs://") {
+          image = `https://ipfs.wapal.io/ipfs/${image.slice(7)}`;
+        }
 
-      token.image = image;
-    })
-  );
+        token.image = image;
+      })
+    );
 
-  return data;
+    return data;
+  }
+
+  return [];
 };

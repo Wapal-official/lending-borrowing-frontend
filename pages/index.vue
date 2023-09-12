@@ -95,7 +95,7 @@
               :primary="false"
               :small="true"
               placeholder="Interest"
-              v-model="interest"
+              v-model="amount"
               :disabled="true"
             >
               <template #prepend-icon>

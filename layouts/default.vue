@@ -99,6 +99,7 @@ export default {
         case 1:
           break;
         case 2:
+          this.$router.push("/offer");
           break;
         case 3:
           break;
@@ -106,6 +107,7 @@ export default {
           this.$router.push("/borrow");
           break;
         case 5:
+          this.$router.push("/loan");
           break;
         default:
           this.$router.push("/");
