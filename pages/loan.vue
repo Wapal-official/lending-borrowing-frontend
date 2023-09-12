@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-1320 tw-mx-auto">
+  <div class="max-w-1322 tw-px-3 tw-mx-auto">
     <div class="tw-mb-16">
       <h1 class="tw-text-5xl tw-mb-5">My loans</h1>
       <p class="tw-text-lg">
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="css">
-.max-w-1320 {
-  max-width: 1320px;
+.max-w-1322 {
+  max-width: 1322px;
 }
 </style>
