@@ -5,10 +5,19 @@
       v-if="!wallet.address"
       @click="connectWalletDialog = true"
     />
-    <button-primary :text="getWalletAddress" :secondary="true" v-else />
+    <button-primary
+      :text="getWalletAddress"
+      :secondary="true"
+      @click="disconnectWalletDialog = true"
+      v-else
+    />
     <connect-wallet-modal
       :connectDialog="connectWalletDialog"
       @close="connectWalletDialog = false"
+    />
+    <connect-wallet-disconnect-modal
+      :disconnectDialog="disconnectWalletDialog"
+      @close="disconnectWalletDialog = false"
     />
   </div>
 </template>
@@ -34,6 +43,7 @@ export default {
   data() {
     return {
       connectWalletDialog: false,
+      disconnectWalletDialog: false,
     };
   },
 };

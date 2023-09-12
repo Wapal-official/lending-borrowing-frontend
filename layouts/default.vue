@@ -38,6 +38,7 @@
         </div>
       </div>
     </div>
+    <toast />
   </v-app>
 </template>
 <script>

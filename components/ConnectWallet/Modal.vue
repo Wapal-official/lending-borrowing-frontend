@@ -102,9 +102,9 @@ export default {
         );
 
         if (resWallet) {
-          //   this.$toast.showMessage({
-          //     message: `${this.walletStore.wallet} Wallet Connected Successfully`,
-          //   });
+          this.$toast.showMessage({
+            message: `Wallet Connected Successfully`,
+          });
 
           this.closeDialog();
         }
@@ -118,7 +118,7 @@ export default {
         ) {
           errorMessage = "Connection Refused";
         }
-        //this.$toast.showMessage({ message: errorMessage, error: true });
+        this.$toast.showMessage({ message: errorMessage, error: true });
       }
     },
     closeDialog() {

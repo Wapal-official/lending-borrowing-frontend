@@ -35,6 +35,12 @@ export const actions = {
 
     return wallet.account;
   },
+  async disconnectWallet({ commit }: { commit: any }) {
+    await wallet.disconnect();
+    commit("setWallet", { address: "" });
+
+    localStorage.setItem("wallet", "");
+  },
   async lenderOffer(
     {},
     {
