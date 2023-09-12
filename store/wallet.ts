@@ -1,9 +1,14 @@
-import { WalletCore, WalletName } from "@aptos-labs/wallet-adapter-core";
-import { PetraWallet } from "petra-plugin-wallet-adapter";
+import {
+  NetworkName,
+  WalletCore,
+  WalletName,
+} from "@aptos-labs/wallet-adapter-core";
 import { AptosClient } from "aptos";
-
-const wallets = [new PetraWallet()];
-const wallet = new WalletCore(wallets);
+import { PetraWallet } from "petra-plugin-wallet-adapter";
+import { MartianWallet } from "@martianwallet/aptos-wallet-adapter";
+import { FewchaWallet } from "fewcha-plugin-wallet-adapter";
+import { PontemWallet } from "@pontem/wallet-adapter-plugin";
+import { RiseWallet } from "@rise-wallet/wallet-adapter";
 
 let NODE_URL = `https://aptos-testnet.nodereal.io/v1/0a895e985f7f44988b049760b76f6510/v1`;
 
@@ -11,6 +16,16 @@ const pid =
   "0x802c67be7b4299cdbdab654c52a8e8fd344c8ae195581c2956a3bfb23b50bc09";
 
 const client = new AptosClient(NODE_URL);
+
+const wallets = [
+  new PetraWallet(),
+  new MartianWallet(),
+  new RiseWallet(),
+  new PontemWallet(),
+  new FewchaWallet(),
+];
+
+const wallet = new WalletCore(wallets);
 
 export const state = () => ({
   wallet: {},

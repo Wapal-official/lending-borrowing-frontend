@@ -60,11 +60,11 @@ export default {
     //   });
     // },
     transpile: [
-      "@identity-connect/dapp-sdk/dist/index.js",
-      "@identity-connect/api/dist/index.js",
       "@aptos-labs/wallet-adapter-core/dist/index.mjs",
       "aptos/dist/index.mjs",
       "axios",
+      "@pontem/wallet-adapter-plugin/dist/index.mjs",
+      "@martianwallet/aptos-wallet-adapter/dist/index.mjs",
     ],
   },
   vuetify: {
