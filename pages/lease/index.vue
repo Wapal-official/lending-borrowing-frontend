@@ -24,7 +24,9 @@
     <h2 class="tw-text-[2rem] tw-uppercase tw-font-bold tw-pb-8">
       My Collection
     </h2>
-    <div class="tw-w-full tw-grid tw-grid-cols-4 tw-gap-y-8 tw-gap-x-6">
+    <div
+      class="tw-w-full tw-grid tw-grid-cols-1 md:tw-grid-cols-2 xl:tw-grid-cols-4 tw-gap-y-8 tw-gap-x-6"
+    >
       <lease-card
         :collection="item"
         v-for="(item, key) in filteredData"

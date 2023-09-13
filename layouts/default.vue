@@ -14,7 +14,7 @@
           class="tw-container tw-mx-auto tw-flex tw-flex-col tw-items-start tw-justify-start tw-py-12 tw-gap-12 tw-px-[3.75rem]"
         >
           <div
-            class="tw-w-full tw-flex tw-flex-row tw-items-center tw-justify-between"
+            class="tw-w-full tw-flex tw-flex-col tw-items-start tw-justify-start md:tw-flex-row md:tw-items-center md:tw-justify-between"
           >
             <v-tabs
               v-model="tab"

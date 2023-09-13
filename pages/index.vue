@@ -183,7 +183,7 @@ export default {
           text: "Apy",
           align: "start",
           value: "apy",
-          width: "200px",
+          width: "100px",
           class: "default-data-table-header",
         },
         {
