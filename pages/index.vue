@@ -59,7 +59,7 @@
           <div>
             <h3 class="tw-text-dark-1 tw-text-sm tw-uppercase">Duration</h3>
             <div class="tw-text-white tw-font-semibold tw-text-xl">
-              {{ selectedCollection.duration }}
+              {{ selectedCollection.duration }}d
             </div>
           </div>
           <div>
