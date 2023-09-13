@@ -250,11 +250,27 @@ export default {
             offer_per_nft: this.amount,
             pool_id: this.selectedCollection.id,
           });
+
+          this.$toast.showMessage({ message: "Offer Placed Successfully" });
+
+          this.data.map((offer) => {
+            if (
+              offer.collection_name === this.selectedCollection.collection_name
+            ) {
+              if (this.amount > offer.best_offer) {
+                offer.best_offer = this.amount;
+              }
+            }
+          });
         }
 
         this.lendDialog = false;
       } catch (error) {
         console.log(error);
+        this.$toast.showMessage({
+          message: "Something Went Wrong",
+          error: true,
+        });
         this.lendDialog = false;
       }
     },
