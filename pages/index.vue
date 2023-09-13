@@ -78,8 +78,6 @@
           <div>
             <text-field
               label="Offer Amount"
-              :secondary="true"
-              :primary="false"
               :small="true"
               placeholder="Amount"
               v-model="amount"
@@ -91,8 +89,6 @@
           <div>
             <text-field
               label="Total Interest"
-              :secondary="true"
-              :primary="false"
               :small="true"
               placeholder="Interest"
               v-model="amount"
