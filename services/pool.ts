@@ -19,7 +19,7 @@ const lendingCollectionName =
 
 export const getPools = async () => {
   const pools = collection(db, collectionName);
-  const poolQuery = query(pools);
+  const poolQuery = query(pools, orderBy("available_pool", "desc"));
 
   const res = await getDocs(poolQuery);
 
@@ -39,7 +39,6 @@ export const getPools = async () => {
 
     let best_offer = 0;
     let lender = "";
-    let available_pool = 0;
     lendingRes.forEach((lendingDoc) => {
       if (lendingDoc.data()) {
         best_offer = lendingDoc.data().offer_per_nft;
@@ -52,7 +51,6 @@ export const getPools = async () => {
       id: doc.id,
       best_offer: best_offer,
       lender: lender,
-      available_pool: available_pool,
     });
   });
 

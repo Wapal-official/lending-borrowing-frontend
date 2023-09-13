@@ -97,6 +97,7 @@ export default {
           this.$router.push("/");
           break;
         case 1:
+          this.$router.push("/lease");
           break;
         case 2:
           this.$router.push("/offer");
