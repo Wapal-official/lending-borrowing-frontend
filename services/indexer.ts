@@ -56,7 +56,7 @@ export const getTokensOfUser = async ({
 
         if (metadata_uri) {
           if (metadata_uri.slice(0, 7) == "ipfs://") {
-            metadata_uri = `https://ipfs.wapal.io/ipfs/${metadata_uri.slice(
+            metadata_uri = `https://cloudflare-ipfs.com/ipfs/${metadata_uri.slice(
               7
             )}`;
           }
@@ -67,7 +67,7 @@ export const getTokensOfUser = async ({
         let image = metadata.data.image;
 
         if (image.slice(0, 7) === "ipfs://") {
-          image = `https://ipfs.wapal.io/ipfs/${image.slice(7)}`;
+          image = `https://cloudflare-ipfs.com/ipfs/${image.slice(7)}`;
         }
 
         token.image = image;

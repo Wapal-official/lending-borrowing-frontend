@@ -45,6 +45,9 @@
               <div v-else-if="header.value === 'apy'" class="tw-text-lg">
                 {{ item[header.value] }}%
               </div>
+              <div v-else-if="header.value === 'duration'" class="tw-text-lg">
+                {{ item[header.value] }}d
+              </div>
               <div v-else-if="header.button">
                 <button-primary
                   :text="header.value"

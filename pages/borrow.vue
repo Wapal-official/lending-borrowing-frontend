@@ -230,6 +230,7 @@ export default {
         });
 
         if (borrowRes) {
+          this.$toast.showMessage({ message: "Loan Borrowed Successfully" });
         }
         this.lendDialog = false;
       }

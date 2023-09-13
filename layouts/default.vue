@@ -27,7 +27,7 @@
                 v-for="(tab, index) in tabs"
                 :key="tab"
                 :ripple="false"
-                class="!tw-text-white tw-rounded-full tw-max-h-[40px] tw-min-h-[40px] tw-py-[0.62rem] tw-px-4 !tw-capitalize !tw-text-xl !tw-font-normal tw-transition-all tw-duration-200 tw-ease-linear tw-border-solid tw-border tw-border-dark-6"
+                class="!tw-text-white !tw-tracking-normal tw-rounded-full tw-max-h-[40px] tw-min-h-[40px] tw-py-[0.62rem] tw-px-4 !tw-capitalize !tw-text-sm !tw-font-normal tw-transition-all tw-duration-200 tw-ease-linear tw-border-solid tw-border tw-border-dark-6"
                 :class="{
                   'tw-ml-3': index !== 0,
                   '!tw-border-none !tw-px-0 !tw-py-0 !tw-w-fit': tab === '/',
@@ -97,6 +97,7 @@ export default {
           this.$router.push("/");
           break;
         case 1:
+          this.$router.push("/lease");
           break;
         case 2:
           this.$router.push("/offer");
