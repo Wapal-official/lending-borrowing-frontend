@@ -94,7 +94,7 @@
               alt="image"
             />
             <div
-              class="tw-p-4 tw-border-b tw-border-l tw-border-r tw-border-dark-6 tw-border-solid tw-text-xs"
+              class="tw-w-full tw-p-4 tw-border-b tw-border-l tw-border-r tw-border-dark-6 tw-border-solid tw-text-xs"
             >
               {{ item.current_token_data.token_name }}
             </div>

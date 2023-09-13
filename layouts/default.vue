@@ -73,9 +73,9 @@ export default {
     } else if (this.$route.path === "/offer") {
       this.tab = 2;
     } else if (this.$route.path === "/borrow") {
-      this.tab = 3;
-    } else if (this.$route.path === "/loan") {
       this.tab = 4;
+    } else if (this.$route.path === "/loan") {
+      this.tab = 5;
     } else {
       this.tab = 0;
     }
